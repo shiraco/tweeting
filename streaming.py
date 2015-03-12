@@ -12,6 +12,7 @@ consumer_secret = os.environ.get('CONSUMER_SECRET')
 access_token = os.environ.get('ACCESS_TOKEN')
 access_token_secret = os.environ.get('ACCESS_TOKEN_SECRET')
 
+
 class StdOutListener(StreamListener):
     def on_data(self, data):
         print(data)
