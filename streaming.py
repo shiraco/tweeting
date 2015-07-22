@@ -6,10 +6,12 @@ from tweepy import Stream
 
 from settings import consumer_key, consumer_secret, access_token, access_token_secret
 
+import json
 
 class StdOutListener(StreamListener):
     def on_data(self, data):
-        print(data)
+        d = json.loads(data)
+        print(d["text"])
         return True
 
     def on_error(self, status):
@@ -21,4 +23,4 @@ if __name__ == '__main__':
     auth.set_access_token(access_token, access_token_secret)
 
     stream = Stream(auth, l)
-    stream.filter(track=['twitter'])
+    stream.filter(track=['#java'])
